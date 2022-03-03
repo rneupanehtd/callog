@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
+
+    <TextView
+        android:id="@+id/TotalCallsLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Call Summary"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layoutSummaryDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toTopOf="@+id/PieChartForTotalLogs"
+        app:layout_constraintTop_toBottomOf="@id/TotalCallsLabel"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvShowIncoming"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:layout_gravity="bottom"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/text_view_border"
+            android:backgroundTint="@color/color1"
+            />
+        <TextView
+            android:id="@+id/tvShowOutgoing"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:layout_gravity="bottom"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/text_view_border"
+            android:backgroundTint="@color/color2"/>
+        <TextView
+            android:id="@+id/tvShowMissed"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:layout_gravity="bottom"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/text_view_border"
+            android:backgroundTint="@color/color3"/>
+        <TextView
+            android:id="@+id/tvShowRejected"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:layout_gravity="bottom"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/text_view_border"
+            android:backgroundTint="@color/color4"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/PieChartForTotalLogs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:minHeight="300dp"
+        app:layout_constraintBottom_toTopOf="@+id/searchByDateButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutSummaryDisplay" />
+
+    <Button
+        android:id="@+id/ButtonViewAllLogs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/view_all_log_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/searchByDateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/search_date_button"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonViewAllLogs"
+
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/searchByNumberButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Search By Number"
+        app:layout_constraintBottom_toTopOf="@id/ButtonViewAllLogs"
+        app:layout_constraintHorizontal_bias="0.838"
+        app:layout_constraintLeft_toRightOf="@id/searchByDateButton"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
